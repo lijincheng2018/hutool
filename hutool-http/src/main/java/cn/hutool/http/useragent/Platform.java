@@ -31,6 +31,10 @@ public class Platform extends UserAgentInfo {
 	 * ipad
 	 */
 	public static final Platform IPAD = new Platform("iPad", "ipad");
+	/**
+	 * openHarmony
+	 */
+	public static final Platform OPENHARMONY = new Platform("OpenHarmony", "openharmony");
 
 	/**
 	 * android
@@ -57,6 +61,7 @@ public class Platform extends UserAgentInfo {
 			new Platform("Android", "XiaoMi|MI\\s+"), //
 			ANDROID, //
 			GOOGLE_TV, //
+			OPENHARMONY, //
 			new Platform("htcFlyer", "htc_flyer"), //
 			new Platform("Symbian", "symbian(os)?"), //
 			new Platform("Blackberry", "blackberry") //
@@ -142,6 +147,16 @@ public class Platform extends UserAgentInfo {
 	 */
 	public boolean isAndroid() {
 		return this.equals(ANDROID) || this.equals(GOOGLE_TV);
+	}
+
+	/**
+	 * 是否为OpenHarmony平台
+	 *
+	 * @return 是否为OpenHarmony平台
+	 * @since 5.8.35
+	 */
+	public boolean isOpenHarmony() {
+		return this.equals(OPENHARMONY);
 	}
 
 }

@@ -503,4 +503,18 @@ public class UserAgentUtilTest {
 		assertEquals("Mac", ua.getPlatform().toString());
 		assertFalse(ua.isMobile());
 	}
+
+	@Test
+	public void parseOpenHarmonyDeviceWithNativeBrowserTest() {
+		final String uaString = "Mozilla/5.0 (Tablet; OpenHarmony 5.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 ArkWeb/4.1.6.1 HuaweiBrowser/5.1.1.311";
+		final UserAgent ua = UserAgentUtil.parse(uaString);
+		assertEquals("Huawei", ua.getBrowser().toString());
+		assertEquals("5.1.1.311", ua.getVersion());
+		assertEquals("Webkit", ua.getEngine().toString());
+		assertEquals("537.36", ua.getEngineVersion());
+		assertEquals("OpenHarmony", ua.getOs().toString());
+		assertEquals("5.0", ua.getOsVersion());
+		assertEquals("OpenHarmony", ua.getPlatform().toString());
+		assertTrue(ua.isMobile());
+	}
 }
